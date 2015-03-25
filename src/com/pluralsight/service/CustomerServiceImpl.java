@@ -17,6 +17,7 @@ public class CustomerServiceImpl implements CustomerService {
 	public CustomerServiceImpl() {}
 	
 	public CustomerServiceImpl(CustomerRepository customerRepository) {
+		System.out.println("inside args constructor");
 		this.customerRepository = customerRepository;
 	}
 
@@ -28,5 +29,4 @@ public class CustomerServiceImpl implements CustomerService {
 	public List<Customer> findAll() {
 		return customerRepository.findAll();
 	}
-	
 }
