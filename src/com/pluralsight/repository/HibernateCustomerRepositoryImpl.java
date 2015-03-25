@@ -3,6 +3,7 @@ package com.pluralsight.repository;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import com.pluralsight.model.Customer;
@@ -10,9 +11,9 @@ import com.pluralsight.model.Customer;
 @Repository("customerRepository")
 public class HibernateCustomerRepositoryImpl implements CustomerRepository {
 
-	/* (non-Javadoc)
-	 * @see com.pluralsight.repository.CustomerRepository#findAll()
-	 */
+	@Value("${anotherName}")
+	private String someValue;
+	
 	@Override
 	public List<Customer> findAll() {
 		
@@ -20,7 +21,7 @@ public class HibernateCustomerRepositoryImpl implements CustomerRepository {
 		
 		Customer customer = new Customer();
 		
-		customer.setFirstName("Lucas");
+		customer.setFirstName(someValue);
 		customer.setLastName("Oliveira");
 		
 		customers.add(customer);
